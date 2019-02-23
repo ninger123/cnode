@@ -18,7 +18,7 @@
           </li>
           <li v-for="post in posts">
             <!--头像-->
-            <img :src="post.author.avatar_url" alt="">
+            <img :src="post.author.avatar_url">
             <!--回复/浏览-->
             <span class="allcount">
                <span class="reply_count">
@@ -37,7 +37,8 @@
             <router-link :to="{
                 name:'post_content',
                 params:{
-                    id:post.id
+                    id:post.id,
+                    name:post.author.loginname
                 }
             }">
             <span>
@@ -67,8 +68,10 @@
       methods:{
         getData(){
           this.$http.get('https://cnodejs.org/api/v1/topics',{
-            page:1,
-            limit:20
+            params:{
+              page:1,
+              limit:20
+            }
           })
             .then(res=>{
               this.isLoading=false; //加载成功去除动画
@@ -92,9 +95,6 @@
     background-color: #e1e1e1;
     width: 80%;
     margin: 0 auto;
-  }
-  .posts {
-    padding-top: 10px;
   }
   .PostList img {
     height: 30px;

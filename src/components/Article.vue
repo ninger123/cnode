@@ -10,15 +10,15 @@
               {{post.title}}
           </div>
           <ul>
-            <li>• 发布于：{{post.create_at | formatDate}}</li>
-            <li>• 作者：{{post.author.loginname}}</li>
-            <li>• {{post.visit_count}}次浏览</li>
-            <li>•来自{{post | tabFormatter}}</li>
+            <li>• 发布于 {{post.create_at | formatDate}}</li>
+            <li>• 作者 {{post.author.loginname}}</li>
+            <li>• {{post.visit_count}} 次浏览</li>
+            <li>•来自 {{post | tabFormatter}}</li>
           </ul>
           <div v-html="post.content" class="topic_content"></div>
         </div>
         <div id="reply">
-          <div class="topbar">回复</div>
+          <div style="padding:10px;background-color:#f6f6f6;height: 16px;font-size: 12px;margin-top: 10px;" >回复</div>
           <div v-for="(reply,index) in post.replies" class="replySec">
             <div class="replyUp">
               <router-link :to="{
@@ -88,7 +88,7 @@
 <style>
   @import url('../assets/markdown-github.css')
 
-  .topbar {
+  #reply .topbarre {
     padding: 10px;
     background-color: #f6f6f6;
     height: 16px;
@@ -97,14 +97,15 @@
   }
   .article{
     background-color: #e1e1e1;
-    width: 80%;
+    width: 65%;
+    min-height: 500px;
     margin: 0 auto;
-    padding-top: 10px;
+    margin-left: 70px;
+    padding-bottom:15px;
   }
 
   .article:not(:first-child) {
     margin-right: 340px;
-    margin-top: 15px;
   }
 
   #reply, .topic_header {
@@ -130,7 +131,7 @@
   }
   .replySec{
     border-bottom:1px solid #e5e5e5;
-    padding:0 10px;
+    padding:12px;
   }
 
   .loading {
@@ -143,20 +144,17 @@
     display: inline-block;
   }
 
-  .topic_header {
-    padding: 10px;
-  }
 
   .topic_title {
-    font-size: 20px;
-    font-weight: bold;
-    padding-top: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    padding:12px 0 0 10px;
   }
 
   .topic_header ul {
     list-style: none;
-    padding: 0px 0px;
-    margin: 6px 0px;
+    padding: 0 0 0 10px;
+    margin: 7px 0 10px 0;
   }
 
   .topic_header li {
@@ -167,10 +165,15 @@
 
   .topic_content {
     border-top: 1px solid #e5e5e5;
-    padding: 0 10px;
+    padding:12px;
+    font-size:15px;
   }
 
   .markdown-text img {
     width: 92% !important;
+  }
+  .markdown-text a{
+    text-decoration: none;
+    color:#08c;
   }
 </style>

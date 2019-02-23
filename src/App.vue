@@ -2,6 +2,7 @@
   <div id="app">
     <Header></Header>
     <div class="main">
+      <router-view name="slidebar"></router-view>
       <router-view name="main"></router-view>
     </div>
   </div>
@@ -9,12 +10,10 @@
 
 <script>
   import Header from "./components/header"
-  import PostList from "./components/PostList"
 export default {
   name: 'App',
   components:{
-    Header,
-    PostList
+    Header
   }
 }
 </script>
@@ -30,6 +29,7 @@ export default {
   }
   .main{
     background-color: rgb(225,225,225);
+    padding-top: 15px;
   }
 
 </style>
