@@ -50,26 +50,33 @@
               {{post.last_reply_at | formatDate}}
             </span>
           </li>
+          <li>
+            <pagination @handleList="renderList"></pagination>
+          </li>
         </ul>
       </div>
     </div>
 </template>
 
 <script>
+  import pagination from './Pagination'
     export default {
       name: "PostList",
       data(){
           return {
             isLoading:false,
-            posts:[ ] //代表页面的列表数组
-
+            posts:[],//代表页面的列表数组
+            postpage:1
           }
+      },
+      components:{
+        pagination
       },
       methods:{
         getData(){
           this.$http.get('https://cnodejs.org/api/v1/topics',{
             params:{
-              page:1,
+              page:this.postpage,
               limit:20
             }
           })
@@ -81,6 +88,10 @@
               //处理返回失败后的问题
               console.log(err);
             })
+        },
+        renderList(value){
+          this.postpage=value;
+          this.getData();
         }
       },
       beforeMount() {

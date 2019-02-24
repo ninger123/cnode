@@ -80,13 +80,12 @@
     width: 80%;
     min-height: 500px;
     margin: 0 auto;
-    padding-top: 5px;
     padding-bottom:15px;
   }
   .userInfomation {
     background: white;
     width: 75%;
-    margin: 5px auto;
+    margin: 0 auto;
   }
   .userInfomation section {
     padding: 5px 12px 12px 12px;

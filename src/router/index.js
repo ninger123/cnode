@@ -31,5 +31,8 @@ export default new Router({
         main:UserInfo
       }
     }
-  ]
-})
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return {x: 0, y: 0}
+  }
+  })
