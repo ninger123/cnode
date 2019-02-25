@@ -143,7 +143,7 @@
   }
 
   .allcount {
-    width: 70px;
+    width: 72px;
     color:rgb(180,180,180);
     display: inline-block;
     text-align: center;
